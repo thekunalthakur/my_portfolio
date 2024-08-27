@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <!-- About Section -->
+        <section id="about" class="py-5">
+            <div class="container">
+                <h2 class="text-center">About Me</h2>
+                <p class="text-center">I am a dedicated Python Developer with expertise in Django, web development, and data analysis. I specialize in building scalable and robust web applications with a focus on clean and efficient code.</p>
+            </div>
+        </section>
+    
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        {% if project.url %}
+                        <a href="{{ project.url }}" class="btn btn-primary">View Project</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+         <!-- Skills Section -->
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="text-center">My Skills</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul>
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>Web Development</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>Data Analysis</li>
+                        <li>Database Management</li>
+                        <li>Version Control (Git)</li>
+                        <li>Unit Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
